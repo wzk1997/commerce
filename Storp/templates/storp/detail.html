@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>店铺详情页面</h1>
+    <table border="1">
+        <tr>
+            <td>店铺封面</td>
+            <td><img src="{{storp.cover}}" alt=""></td>
+        </tr>
+         <tr>
+            <td>店铺名称</td>
+            <td>{{storp.name}}</td>
+        </tr>
+         <tr>
+            <td>店铺状态</td>
+            <td> {% if storp.status == 0%}
+                <p>证在营业</p>
+                <a href="{% url 'storp:change' storp.id 1%}">暂停营业</a>
+                <a href="{% url 'storp:change' storp.id 2%}">删除店铺</a>
+             {% elif storp.status == 1%}
+                <p>暂停营业</p>
+                <a href="{% url 'storp:change'  storp.id 0%}">开始营业</a>
+                <a href="{% url 'storp:change' storp.id 2%}">删除店铺</a>
+             {% endif%}
+        </tr>
+    </table>
+</body>
+</html>

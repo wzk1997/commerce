@@ -1,0 +1,40 @@
+{% extends 'register.html'%}
+{% block head%}
+<title>个人中心</title>
+{% endblock %}
+
+{% block per%}
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">个人中心</font></font></li>
+{% endblock%}
+
+{% block from%}
+<div class="w3l_banner_nav_right">
+    <!-- login -->
+    <div class="w3_login">
+        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更改个人信息</font></font></h3>
+        <div class="w3_login_module">
+            <div class="module form-module">
+                <div class="form" style="display: block;">
+                    <h2><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">更改个人信息</font></font>
+                    </h2>
+                    <form action="/Users/personal/" method="POST" enctype="multipart/form-data">
+                        <input type="text" name="nickname" placeholder=" nickname" value="{{art.nickname}}">
+                        <input type="text" name="age" placeholder="age" value="{{art.age}}">
+                        男<input type="radio" name="gender" value="男" checked="checked">
+                        女<input type="radio" name="gender" value="女">
+                        <div>
+                            {{art.header}}
+                        </div>
+                        <input type="file" name="header">头像
+                        <input type="email" name="email" placeholder="Email Address" value="{{art.email}}" required=" ">
+                        <input type="text" name="phone" placeholder="Phone Number" value="{{art.phone}}" required=" ">
+                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            <input type="submit" value="修改"></font></font>
+                    </form>
+                </div>
+                <div class="cta"><a href="#"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">忘记密码了吗？</font></font></a></div>
+            </div>
+        </div>
+        {% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'register.html' %}
+{% block head%}
+<title>收货地址</title>
+{% endblock %}
+
+{% block from%}
+
+<div class="w3l_banner_nav_right">
+    <!-- login -->
+    <div class="w3_login">
+        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">收获地址</font></font></h3>
+        <div class="w3_login_module">
+            <div class="module form-module">
+                <div class="form" style="display: block;">
+                    <h2><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">添加您的收货地址</font></font>
+                    </h2>
+                    <form action="/Users/address/" method="POST" enctype="multipart/form-data">
+                        <h4>选择国家</h4>
+                        <div class="selectSheng"></div>
+                        <select name="guojia">
+                            <option value="" name="native">中国</option>
+                        </select>
+                        <br>
+                        <select name="sheng">
+                            <option value="" name="provice">请选择</option>
+                        </select>
+                        <select name="shi">
+                            <option value="" name="city">请选择</option>
+                        </select>
+                        <select name="qu">
+                            <option value="" name="country">请选择</option>
+                        </select>
+                        <input type="text" name="street" placeholder="请输入街道" value="{{art.street}}">
+                        <textarea name="desc" id="" cols="37" rows="5" placeholder="请输入详细描述"></textarea>
+                        默认地址<input type="radio" value="True" name="status" checked="checked"> 不是默认地址 <input  name="status" type="radio" value="Flase">
+                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            <input type="submit" value="添加收货地址"></font></font>
+                    </form>
+                </div>
+                <div class="cta">
+                    i
+                </div>
+            </div>
+            <script src="/static/js/AreaData_min.js"></script>
+            <script type="text/javascript">
+    // var area_array=[];
+    // var sub_array=[];
+    // var sub_arr = [];
+    var sheng = shengVal = shengName = shiVal = shiName = "";
+    for(key in area_array) {
+        sheng += "<option value='"+key+"'>"+area_array[key]+"</option>";
+    }
+    $("select[name='sheng']").html(sheng);
+    //shi
+    $("select[name='sheng']").change(function(){
+        var shi = "";
+        shengVal = $(this).val();
+        shengName = $(this).find("option[value='"+shengVal+"']").html();
+        for(key in sub_array[shengVal]){
+            shi += "<option value='"+key+"'>"+sub_array[shengVal][key]+"</option>";
+        }
+        $("select[name='shi']").html(shi);
+    });
+    $("select[name='shi']").change(function(){
+        shiVal = $(this).val();
+        shiName = $(this).find("option[value='"+shiVal+"']").html();
+        var qu = "";
+        for(key in sub_arr[shiVal]){
+            qu += "<option value='"+key+"'>"+sub_arr[shiVal][key]+"</option>";
+        }
+        $("select[name='qu']").html(qu);
+    });
+
+
+            </script>
+
+            {% endblock %}
+

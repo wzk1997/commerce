@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="translated-ltr">
+
+<head>
+    {% block head%}
+    <title>登录注册</title>
+    {% endblock %}
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="">
+    <script type="application/x-javascript">addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); }
+
+    </script>
+    <!-- //for-mobile-apps -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- font-awesome icons -->
+    <link href="/static/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <link href="http://fonts.useso.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic"
+          rel="stylesheet" type="text/css">
+    <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic"
+          rel="stylesheet" type="text/css">
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="/static/js/move-top.js"></script>
+    <script type="text/javascript" src="/static/js/easing.js"></script>
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+
+
+    </script>
+    <!-- start-smoth-scrolling -->
+    <link type="text/css" rel="stylesheet" charset="UTF-8"
+          href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+</head>
+<body>
+
+<!-- header -->
+{% block header%}
+<div class="agileits_header fixed">
+    <div class="w3l_offers">
+        <a href="/Users/personal/"><font style="vertical-align: inherit;"><font
+                style="vertical-align: inherit;">今日特惠！</font></font></a>
+    </div>
+    <div class="w3l_search">
+        <form action="#" method="get">
+            <input type="text" name="Product" value="Search a product..." onfocus="this.value = '';"
+                   onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+            <input type="submit" value=" ">
+        </form>
+    </div>
+    <div class="product_list_header">
+        <div style="cursor: pointer;">
+            <span class="glyphicon glyphicon-shopping-cart my-cart-icon"
+                  style="position: relative; background-color: inherit; z-index: 999;"><i
+                    class="badge badge-notify my-cart-badge"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">0</font></font></i></span>
+        </div>
+    </div>
+    <div class="w3l_header_right">
+        <ul>
+            <li class="dropdown profile_details_drop">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span
+                        class="caret"></span></a>
+                <div class="mega-dropdown-menu">
+                    <div class="w3ls_vegetables">
+                        <ul class="dropdown-menu drp-mnu">
+                            <li><a href="{% url 'Users:personal' %}"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">个人中心</font></font></a></li>
+                            <li><a href="{% url 'Users:register' %}"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">购物车</font></font></a></li>
+                            <li><a href="{% url 'Users:login' %}"><font style="vertical-align: inherit;"><font
+                                    style="vertical-align: inherit;">切换用户</font></font></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="w3l_header_right1">
+        <h2><a href="mail.html"><font style="vertical-align: inherit;"><font
+                style="vertical-align: inherit;">联系我们</font></font></a></h2>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!-- script-for sticky-nav -->
+<script>
+	$(document).ready(function() {
+		 var navoffeset=$(".agileits_header").offset().top;
+		 $(window).scroll(function(){
+			var scrollpos=$(window).scrollTop(); 
+			if(scrollpos >=navoffeset){
+				$(".agileits_header").addClass("fixed");
+			}else{
+				$(".agileits_header").removeClass("fixed");
+			}
+		 });
+		 
+	});
+
+
+</script>
+<!-- //script-for sticky-nav -->
+<div class="logo_products">
+    <div class="container">
+        <div class="w3ls_logo_products_left">
+            <h1><a href="index.html"><span><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">杂货</font></font></span><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">商店</font></font></a></h1>
+        </div>
+        <div class="w3ls_logo_products_left1">
+            <ul class="special_items">
+                <li><a href="events.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">活动</font></font></a><i><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></i></li>
+                <li><a href="about.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于我们</font></font></a><i><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></i></li>
+                <li><a href="products.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">特惠</font></font></a><i><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></i></li>
+                <li><a href="services.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">服务</font></font></a></li>
+            </ul>
+        </div>
+        <div class="w3ls_logo_products_left1">
+            <ul class="phone_email">
+                <li><i class="fa fa-phone" aria-hidden="true"></i><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">（+0123）234 567</font></font></li>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com"><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">store@grocery.com</font></font></a>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- //header -->
+<!-- products-breadcrumb -->
+<div class="products-breadcrumb">
+    <div class="container">
+        <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="/Users/homepage/"><font
+                    style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">主页</font></font></a><span><font
+                    style="vertical-align: inherit;"><font style="vertical-align: inherit;">|</font></font></span></li>
+            {% block per%}
+            <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">登录注册</font></font></li>
+            {% endblock %}
+        </ul>
+    </div>
+</div>
+<!-- //products-breadcrumb -->
+{% endblock %}
+<!-- banner -->
+{% block banner%}
+<div class="banner">
+    <div class="w3l_banner_nav_left">
+        <nav class="navbar nav_bottom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse"
+                        data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">切换导航</font></font></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                <ul class="nav navbar-nav nav_1">
+                    <li><a href="products.html"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">品牌食品</font></font></a></li>
+                    <li><a href="household.html"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">住户</font></font></a></li>
+                    <li class="dropdown mega-dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font
+                                style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">蔬菜和水果</font></font><span class="caret"></span></a>
+                        <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                            <div class="w3ls_vegetables">
+                                <ul>
+                                    <li><a href="vegetables.html"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">蔬菜</font></font></a></li>
+                                    <li><a href="vegetables.html"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">水果</font></font></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="kitchen.html"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">厨房</font></font></a></li>
+                    <li><a href="short-codes.html"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">短代码</font></font></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font
+                                style="vertical-align: inherit;"><font style="vertical-align: inherit;">饮料</font></font><span
+                                class="caret"></span></a>
+                        <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                            <div class="w3ls_vegetables">
+                                <ul>
+                                    <li><a href="drinks.html"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">软饮料</font></font></a></li>
+                                    <li><a href="drinks.html"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">果汁</font></font></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="pet.html"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">宠物食品</font></font></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><font
+                                style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">冷冻食品</font></font><span class="caret"></span></a>
+                        <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                            <div class="w3ls_vegetables">
+                                <ul>
+                                    <li><a href="frozen.html"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">冷冻小吃</font></font></a></li>
+                                    <li><a href="frozen.html"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">冷冻Nonveg</font></font></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="bread.html"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">面包和面包店</font></font></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </div>
+    {% block from%}
+    <div class="w3l_banner_nav_right">
+        <!-- login -->
+        <div class="w3_login">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">登录注册</font></font></h3>
+            <div class="w3_login_module">
+                <div class="module form-module">
+
+
+                    <div class="form" style="display: block;">
+                        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建一个帐户</font></font>
+                        </h2>
+
+                        <form action="/Users/register/" method="POST" enctype="multipart/form-data">
+                            <input type="text" name="Username" placeholder="Username" required=" ">
+                            {{mas}}
+                            <input type="password" name="Password" placeholder="Password" required=" ">
+                            <input type="text" name="nickname" placeholder="nickname">
+                            <input type="text" name="age" placeholder="age">
+                            男<input type="radio" name="gender" value="男" checked="checked">
+                            女<input type="radio" name="gender" value="女">
+                            <input type="file" name="header">头像
+                            <input type="email" name="email" placeholder="Email Address" required=" ">
+                            <input type="text" name="phone" placeholder="Phone Number" required=" ">
+
+                            <img src="/Users/addutils/" alt="不现实" onclick="refresh_check_code(this)">
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                <input type="submit" value="注册"></font></font>
+                        </form>
+                    </div>
+                    <div class="cta"><a href="#"><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">忘记密码了吗？</font></font></a></div>
+                </div>
+            </div>
+            {% endblock %}
+            <script>
+				$('.toggle').click(function(){
+				  // Switches the Icon
+				  $(this).children('i').toggleClass('fa-pencil');
+				  // Switches the forms  
+				  $('.form').animate({
+					height: "toggle",
+					'padding-top': 'toggle',
+					'padding-bottom': 'toggle',
+					opacity: "toggle"
+				  }, "slow");
+				});
+
+            </script>
+        </div>
+        <!-- //login -->
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock %}
+<!-- //banner -->
+
+
+<!-- newsletter-top-serv-btm -->
+{% block top%}
+<div class="newsletter-top-serv-btm">
+    <div class="container">
+        <div class="col-md-4 wthree_news_top_serv_btm_grid">
+            <div class="wthree_news_top_serv_btm_grid_icon">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nam libero临时</font></font>
+            </h3>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Temporibus autem quibusdam
+                et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+                et。</font></font></p>
+        </div>
+        <div class="col-md-4 wthree_news_top_serv_btm_grid">
+            <div class="wthree_news_top_serv_btm_grid_icon">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </div>
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">officiis debitis aut
+                rerum</font></font></h3>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Temporibus autem quibusdam
+                et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+                et。</font></font></p>
+        </div>
+        <div class="col-md-4 wthree_news_top_serv_btm_grid">
+            <div class="wthree_news_top_serv_btm_grid_icon">
+                <i class="fa fa-truck" aria-hidden="true"></i>
+            </div>
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">eveniet ut et
+                voluptates</font></font></h3>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Temporibus autem quibusdam
+                et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
+                et。</font></font></p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% endblock %}
+<!-- //newsletter-top-serv-btm -->
+<!-- newsletter -->
+{% block news %}
+<div class="newsletter">
+    <div class="container">
+        <div class="w3agile_newsletter_left">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注册我们的通讯</font></font></h3>
+        </div>
+        <div class="w3agile_newsletter_right">
+            <form action="#" method="post">
+                <input type="email" name="Email" value="Email" onfocus="this.value = '';"
+                       onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                        <input type="submit" value="现在订阅"></font></font>
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% endblock%}
+<!-- //newsletter -->
+
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="col-md-3 w3_footer_grid">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">信息</font></font></h3>
+            <ul class="w3_footer_grid_list">
+                <li><a href="events.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">活动</font></font></a>
+                </li>
+                <li><a href="about.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于我们</font></font></a>
+                </li>
+                <li><a href="products.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">最佳优惠</font></font></a></li>
+                <li><a href="services.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">服务</font></font></a></li>
+                <li><a href="short-codes.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">短代码</font></font></a></li>
+            </ul>
+        </div>
+        <div class="col-md-3 w3_footer_grid">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">政策信息</font></font></h3>
+            <ul class="w3_footer_grid_list">
+                <li><a href="faqs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">常问问题</font></font></a>
+                </li>
+                <li><a href="privacy.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">隐私政策</font></font></a></li>
+                <li><a href="privacy.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">使用条款</font></font></a></li>
+            </ul>
+        </div>
+        <div class="col-md-3 w3_footer_grid">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">什么在商店</font></font></h3>
+            <ul class="w3_footer_grid_list">
+                <li><a href="pet.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">宠物食品</font></font></a>
+                </li>
+                <li><a href="frozen.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">冷冻小吃</font></font></a>
+                </li>
+                <li><a href="kitchen.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">厨房</font></font></a></li>
+                <li><a href="products.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">品牌食品</font></font></a></li>
+                <li><a href="household.html"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">住户</font></font></a></li>
+            </ul>
+        </div>
+        <div class="col-md-3 w3_footer_grid">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">推特帖子</font></font></h3>
+            <ul class="w3_footer_grid_list1">
+                <li><label class="fa fa-twitter" aria-hidden="true"></label><i><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">01天前</font></font></i><span><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">非numquam </font></font><a href="#"><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">http：//sd.ds/13jklf#</font></font></a><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+						eius modi tempora incidunt ut labore et
+						 </font></font><a href="#"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">http://sd.ds/1389kjklf#quo</font></font></a><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;"> nulla。</font></font></span></li>
+                <li><label class="fa fa-twitter" aria-hidden="true"></label><i><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">02天前</font></font></i><span><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">Con numquam </font></font><a href="#"><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">http：//fd.uf/56hfg#</font></font></a><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+						eius modi tempora incidunt ut labore et
+						 </font></font><a href="#"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">http://fd.uf/56hfg#quo</font></font></a><font
+                        style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;"> nulla。</font></font></span></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="agile_footer_grids">
+            <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+                <div class="w3_footer_grid_bottom">
+                    <h4><font style="vertical-align: inherit;"><font
+                            style="vertical-align: inherit;">100％安全付款</font></font></h4>
+                    <img src="/static/images/card.png" alt=" " class="img-responsive">
+                </div>
+            </div>
+            <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+                <div class="w3_footer_grid_bottom">
+                    <h5><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系我们</font></font>
+                    </h5>
+                    <ul class="agileits_social_icons">
+                        <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="wthree_footer_copy">
+            <p><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">版权所有©2016。公司名称保留所有权利。</font></font><a target="_blank"
+                                                                                           href="http://sc.chinaz.com/moban/"><font
+                    style="vertical-align: inherit;"><font style="vertical-align: inherit;">网页模板</font></font></a></p>
+        </div>
+    </div>
+</div>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="/static/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+
+
+</script>
+<script type="text/javascript" id="snipcart" src="js/snipcart.js"
+        data-api-key="ZGQxNzVjZTItOWRmNS00YjJhLTlmNGUtMDE4NjdiY2RmZGNj"></script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+
+
+</script>
+<!-- //here ends scrolling icon -->
+<script type="text/javascript" src="/static/js/jquery.mycart.js"></script>
+<script type="text/javascript">
+  $(function () {
+
+    var goToCartIcon = function($addTocartBtn){
+      var $cartIcon = $(".my-cart-icon");
+      var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+      $addTocartBtn.prepend($image);
+      var position = $cartIcon.position();
+      $image.animate({
+	  
+      }, 500 , "linear", function() {
+        $image.remove();
+      });
+    }
+
+    $('.my-cart-btn').myCart({
+      classCartIcon: 'my-cart-icon',
+      classCartBadge: 'my-cart-badge',
+      affixCartIcon: true,
+      checkoutCart: function(products) {
+        $.each(products, function(){
+          console.log(this);
+        });
+      },
+      clickOnAddToCart: function($addTocart){
+        goToCartIcon($addTocart);
+      },
+      getDiscountPrice: function(products) {
+        var total = 0;
+        $.each(products, function(){
+          total += this.quantity * this.price;
+        });
+        return total * 1;
+      }
+    });
+
+  });
+
+
+</script>
+
+<a href="#" id="toTop" style="display: none;"><span id="toTopHover"></span><font style="vertical-align: inherit;"><font
+        style="vertical-align: inherit;">到达顶点</font></font></a>
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr">
+    <div style="padding: 8px;">
+        <div>
+            <div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png"
+                                   width="20" height="20" alt="Google 翻译"></div>
+        </div>
+    </div>
+    <div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div>
+    <div class="middle" style="padding: 8px;">
+        <div class="original-text"></div>
+    </div>
+    <div class="bottom" style="padding: 8px;">
+        <div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span>
+        </div>
+        <div class="started-activity-container">
+            <hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;">
+            <div class="activity-root"></div>
+        </div>
+    </div>
+    <div class="status-message" style="display: none;"></div>
+</div>
+<div class="modal fade" id="my-cart-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true"><font style="vertical-align: inherit;"><font
+                        style="vertical-align: inherit;">×</font></font></span></button>
+                <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 我的车</font></font></h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover table-responsive" id="my-cart-table"></table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">关</font></font></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="goog-te-spinner-pos">
+    <div class="goog-te-spinner-animation">
+        <svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66">
+            <circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33"
+                    r="30"></circle>
+        </svg>
+    </div>
+</div>
+<script>
+      function refresh_check_code(node) {
+                 // src 后面加问号会自动刷新验证码 img 的 src
+                // get 请求方式缓存处理
+                 node.src = '/Users/addutils/?search=' + Math.random();
+                 }
+
+
+</script>
+</body>
+</html>

@@ -19,7 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('commons.urls',namespace='commons')),
-    url(r'^Storp/',include('Storp.urls',namespace='Storp')),
+    url(r'^storp/',include('storp.urls',namespace='storp')),
     url(r'^Users/',include('Users.urls',namespace='Users')),
 
 ]

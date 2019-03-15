@@ -1,0 +1,40 @@
+{% extends 'baes.html' %}
+
+{% block head%}
+<title>店铺详情列表</title>
+{% endblock%}
+
+
+{% block login%}
+<li><a href="{% url 'Users:personal'%}">个人中心</a></li>
+<li><a href="#">查看店铺</a></li>
+{% endblock %}
+
+
+{% block bottom %}
+{% endblock%}
+
+{% block brands%}
+
+
+<div class="top-brands">
+    <div class="container">
+        <h3>店铺列表</h3>
+        {% for i in storplist %}
+        <table  width="1000px"   cellpadding="11px">
+            <tr >
+                <td> <img src="/{{i.cover}}" alt="" width="200"> </td>
+                <td> {{i.name}} </td>
+                <td>{{i.intro}} </td>
+                <td><a href="{% url 'storp:detail' i.id %}">查看店铺详情</a></td>
+            </tr>
+        </table>
+        {% endfor%}
+    </div>
+</div>
+{% endblock %}
+<!-- top-brands -->
+
+
+{% block fresh %}
+{% endblock %}

@@ -21,7 +21,7 @@ def add(request):
         except:
             store = models.Store(name=name, intro=intro, users_id=id)
         store.save()
-        return redirect(reverse('Storp:list'))
+        return redirect(reverse('storp:list'))
         # return redirect(reverse('storp:detail',kwargs={'s_id':store.id}))
 
 
@@ -30,7 +30,7 @@ def add(request):
 def list(request):
     id = request.session.get('art')
     print(id)
-    storplist = models.Store.objects.filter(users=id)
+    storplist = models.Store.objects.filter(users=id, status__in=[0, 1])
     print(storplist)
     return render(request, 'storp/list.html', {'storplist': storplist})
 
@@ -43,14 +43,17 @@ def update(request, s_id):
 # 店铺详情
 def detail(request, s_id):
     if request.method == 'GET':
-        storp = models.Store.objects.filter(pk=s_id)
-        return render(request, 'storp/detailc.html', {"storp": storp})
+        storp = models.Store.objects.get(pk=s_id)
+        return render(request, 'storp/detail.html', {'storp': storp})
 
 
 @require_GET
 # 修改店铺状态
-def change(request, s_id, stutas):
+def change(request, s_id, status):
     storp = models.Store.objects.get(id=s_id)
-    storp.status = int(stutas)
+    storp.status=int(status)
     storp.save()
-    return render(request, 'storp/detailc.html', {"storp": storp})
+    if storp.status == 2:
+        return render(request,'storp/list.html')
+    else:
+        return render(request,'storp/detail.html',{'storp':storp})

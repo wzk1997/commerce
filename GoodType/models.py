@@ -1,5 +1,5 @@
 from django.db import models
-from Storp.models import Store
+from storp.models import Store
 
 
 class GoodsType(models.Model):

@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('Storp', '0001_initial'),
+        ('storp', '0001_initial'),
     ]
 
     operations = [
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('add_time', models.TimeField()),
                 ('desc', models.CharField(max_length=255)),
                 ('goods_detail_type', models.CharField(max_length=255)),
-                ('goods_store', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Storp.Store')),
+                ('goods_store', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='storp.Store')),
             ],
         ),
         migrations.CreateModel(

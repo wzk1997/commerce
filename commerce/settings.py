@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'GoodType',
     'Order',
     'Shopcart',
-    'Storp',
+    'storp',
 ]
 
 MIDDLEWARE = [

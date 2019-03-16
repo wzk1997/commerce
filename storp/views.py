@@ -17,12 +17,13 @@ def add(request):
         try:
             # 店铺图片
             cover = request.FILES.get('cover')
+            print(cover)
             store = models.Store(name=name, cover=cover, intro=intro, users_id=id)
         except:
             store = models.Store(name=name, intro=intro, users_id=id)
         store.save()
-        return redirect(reverse('storp:list'))
-        # return redirect(reverse('storp:detail',kwargs={'s_id':store.id}))
+        # return redirect(reverse('storp:list'))
+        return redirect(reverse('storp:detail',kwargs={'s_id':store.id}))
 
 
 # 店铺列表
@@ -34,10 +35,26 @@ def list(request):
     print(storplist)
     return render(request, 'storp/list.html', {'storplist': storplist})
 
-
+@csrf_exempt
 # 更改店铺
 def update(request, s_id):
-    pass
+    if request.method == 'GET':
+        storp=models.Store.objects.get(pk=s_id)
+        return render(request,'storp/update.html',{"storp":storp})
+    elif request.method == 'POST':
+        id = request.session.get('art')
+        name=request.POST['name']
+        intro = request.POST['intro']
+        try:
+            cover = request.FILES.get('cover')
+            print(cover)
+            storp = models.Store(name=name, intro=intro, cover=cover, users_id=id)
+        except:
+
+            storp=models.Store(name=name,intro=intro,users_id=id)
+        storp.save()
+        return redirect(reverse('storp:detail',kwargs={'s_id':storp.id}))
+
 
 
 # 店铺详情
@@ -45,7 +62,6 @@ def detail(request, s_id):
     if request.method == 'GET':
         storp = models.Store.objects.get(pk=s_id)
         return render(request, 'storp/detail.html', {'storp': storp})
-
 
 @require_GET
 # 修改店铺状态

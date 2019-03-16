@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tinymce',
     'Users',
-    'GoodType',
-    'Order',
-    'Shopcart',
+    'goodtype',
+    'oreder',
+    'shopcart',
     'storp',
 ]
 

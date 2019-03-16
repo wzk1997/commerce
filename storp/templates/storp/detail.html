@@ -20,16 +20,17 @@
 <div class="top-brands">
     <div class="container">
         <h3>店铺详情</h3>
-        <table border="0" width="1000px" cellpadding="11px" align="center">
-            <tr align="center">
-                <td>店铺封面</td>
+        <table border="0" width="500px" cellpadding="11px" align="center">
+            <tr align="center ">
+                <td></td>
+
                 <td><img src="/{{storp.cover}}" width="500px" alt=""></td>
             </tr>
             <tr>
-                <td>店铺名称</td>
-                <td align="center">{{storp.name}}</td>
+                <td></td>
+                <td align="center">店铺名字：{{storp.name}}</td>
             </tr>
-            <tr>
+            <tr align="center">
                 <td>店铺状态</td>
                 {% if storp.status == 0 %}
                 <td> 正在营业</td>
@@ -39,9 +40,10 @@
                 <td> 正在营业</td>
                 <td><a href="{% url 'storp:change' storp.id 0 %}"> 开始营业</a></td>
                 <td><a href="{% url 'storp:change' storp.id 2 %}"> 停止营业</a></td>
-                {% elif storp.status == 2%}
-                <p>店铺赢已经被删除</p>
                 {% endif %}
+                <td>
+                    <a href="{% url 'storp:update' storp.id %}"><p>修改店铺信息</p></a>
+                </td>
             </tr>
         </table>
     </div>

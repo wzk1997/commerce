@@ -10,6 +10,7 @@
 
 
 {% block from%}
+
     <div class="w3l_banner_nav_right">
         <!-- login -->
         <div class="w3_login">
@@ -25,7 +26,7 @@
                         <form action="/storp/add/" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="art.id">
                             店铺名称: <input type="text" name="name">
-                            店铺封面： <input type="file" name="cover">
+                            店铺封面：<input type="file"  name="cover"> </a>
                             店铺详情：
                             <textarea name="intro" id="" cols="38" rows="10"></textarea>
                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
@@ -34,7 +35,6 @@
                     </div>
                     <div class="cta"><a href="/Users/homepage/"><font style="vertical-align: inherit;"><font
                             style="vertical-align: inherit;">取消添加</font></font></a></div>
-                    <a href="#">修改店铺</a>
                 </div>
             </div>
             {% endblock %}
